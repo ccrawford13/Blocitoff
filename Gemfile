@@ -26,6 +26,7 @@ gem 'devise'
 gem 'puma'
 gem 'haml'
 gem 'figaro', '1.0'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'rspec-rails'
