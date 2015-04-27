@@ -24,6 +24,7 @@ gem 'puma'
 gem 'haml'
 gem 'figaro', '1.0'
 gem 'bootstrap-sass'
+gem 'faker'
 
 group :development, :test do
   gem 'better_errors'
