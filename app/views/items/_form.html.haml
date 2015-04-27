@@ -1,0 +1,5 @@
+= form_for [user, user.items.build], remote: true do |f|
+  .row
+    .col-md-9.col-md-offset-2
+      .form-group#new-task
+        = f.text_field :title, class: 'form-control', placeholder: "New Task"

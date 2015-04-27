@@ -26,7 +26,7 @@
                 = link_to "About", '#'
               - if current_user
                 %li
-                  = link_to "My Lists", '#'
+                  = link_to "My Lists", user_path(current_user)
             %ul.nav.navbar-nav.navbar-right
               - if current_user
                 %li

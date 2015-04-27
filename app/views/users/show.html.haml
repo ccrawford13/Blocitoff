@@ -1,0 +1,14 @@
+.container
+  .col-md-8
+    %h1= current_user.first_name
+    .col-md-4.todo-list
+      / = link_to "New Todo List", new_todo_list_path, class: 'btn btn-success'
+    .col-md-8
+      .col-md-8
+        .new-item
+          = render partial: 'items/form', locals: { user: @user, items: @items }
+        .js-items
+          = render @items
+
+
+

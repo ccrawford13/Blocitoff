@@ -7,13 +7,13 @@ describe 'User sign in' do
       @user = create(:user) # Confirmed user
     end
 
-    it 'redirects user to #welcome' do
+    it 'redirects user to UsersController#show' do
       sign_in_nav
       fill_in 'Email', with: @user.email
       fill_in 'Password', with: @user.password
       click_button 'Log in'
       expect( page ).to have_content "Signed in successfully"
-      expect( current_path ).to eq(root_path)
+      expect( current_path ).to eq(user_path(@user))
     end
   end
 
