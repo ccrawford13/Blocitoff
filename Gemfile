@@ -26,6 +26,8 @@ gem 'figaro', '1.0'
 gem 'bootstrap-sass'
 
 group :development, :test do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'capybara'
