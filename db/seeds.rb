@@ -11,6 +11,16 @@ require 'faker'
   user.skip_confirmation!
   user.save!
 end
+
+admin = User.new(
+  first_name:          'admin',
+  last_name:            'istrator',
+  email:                 'chad@example.com',
+  password:             'password'
+  )
+admin.skip_confirmation!
+admin.save!
+
 users = User.all
 
 100.times do

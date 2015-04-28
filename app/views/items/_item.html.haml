@@ -1,5 +1,7 @@
-.container
+= div_for(item, class: 'container', id: "item-#{item.id}") do
   .row
-    .col-md-4.col-md-offset-1
-      %h4
-        = item.title
+    .col-md-6
+      %h4= item.title
+      %p= item.created_at
+    .col-md-1
+      = link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true

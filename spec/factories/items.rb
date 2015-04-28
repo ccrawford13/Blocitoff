@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :item do
-    title 'New task'
+    title 'New unique task'
     user 
   end
 end
