@@ -23,7 +23,7 @@ admin.save!
 
 users = User.all
 
-100.times do
+200.times do
   item = Item.create!(
     title:         Faker::Lorem.sentence,
     user:          users.sample

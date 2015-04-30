@@ -1,6 +1,8 @@
 FactoryGirl.define do
   factory :item do
     title 'New unique task'
-    user 
+    user
+    completed false
+    score 1.0
   end
 end
