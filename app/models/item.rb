@@ -1,5 +1,8 @@
 class Item < ActiveRecord::Base
   belongs_to :user
+  
+  validates :user, presence: true
+  validates :title, length: { minimum: 5 }, presence: true
 
   # update list - with completed items at bottom of list
   scope :sorted, -> { order(score: :asc) }

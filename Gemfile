@@ -25,6 +25,7 @@ gem 'haml'
 gem 'figaro', '1.0'
 gem 'bootstrap-sass'
 gem 'faker'
+gem 'pundit'
 
 group :development, :test do
   gem 'better_errors'
