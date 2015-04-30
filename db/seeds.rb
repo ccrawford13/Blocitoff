@@ -11,9 +11,19 @@ require 'faker'
   user.skip_confirmation!
   user.save!
 end
+
+admin = User.new(
+  first_name:          'admin',
+  last_name:            'istrator',
+  email:                 'chad@example.com',
+  password:             'password'
+  )
+admin.skip_confirmation!
+admin.save!
+
 users = User.all
 
-100.times do
+200.times do
   item = Item.create!(
     title:         Faker::Lorem.sentence,
     user:          users.sample
