@@ -1,14 +1,16 @@
 = div_for(item, class: 'container', id: "item-#{item.id}") do
-  .row
+  .row#item-container
     .col-md-1#mark-complete
       = link_to "", [item.user, item], :controller => 'items', :action => "update", :id => @item, class: 'glyphicon glyphicon-ok', method: :patch, remote: true
-    .col-md-5#item-container
+    .col-md-6#rendered-item
       - if item[:completed] == true
         %strike
-          %h4= item.title
-          %p= item.created_at
+          %h4.item-title#completed= item.title
+          .col-md-6.item-details
+            %p#completed Completed - #{ item.updated_at.time.to_formatted_s(:long_ordinal) }
       -else
-        %h4= item.title
-        %p= item.created_at
-    .col-md-1#delete
+        %h4.item-title#new-items= item.title
+        .col-md-6.item-details
+          %p Created - #{ item.created_at.time.to_formatted_s(:long_ordinal) }
+    .col-md-1#delete-link
       = link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-trash', remote: true

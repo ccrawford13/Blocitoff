@@ -1,3 +1,51 @@
 // Place all the styles related to the TodoLists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#item-container {
+  border: 2pt solid #ccc;
+  border-radius: 5%;
+  margin-bottom: .5em;
+  max-width: 65%;
+  background: rgba(25, 178, 142, 0.24)
+}
+
+#rendered-item {
+  min-width: 80%;
+}
+
+#mark-complete {
+  max-width: 10%;
+  text-align: right;
+  vertical-align: middle;
+  line-height: 78px;
+  min-height: 78px;
+}
+
+#delete-link {
+  max-width: 10%;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 78px;
+  min-height: 78px;
+}
+
+.js-items {
+  min-width: 65%;
+}
+
+// Item Styling
+
+#completed {
+  color: gray;
+}
+
+.item-title {
+  margin-bottom: 0;
+  padding-top: .75em;
+}
+
+.item-details {
+  margin: 0 0 0 1em;
+  padding-top: .25em;
+}
