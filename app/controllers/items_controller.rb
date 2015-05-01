@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
     @item = current_user.items.build( item_params )
     @user = @item.user
     @new_item = Item.new
-    authorize @item
     @item.calculate_score
     @item.save
   end

@@ -7,6 +7,12 @@ class Item < ActiveRecord::Base
   # update list - with completed items at bottom of list
   scope :sorted, -> { order(score: :asc) }
 
+  # Display time remaining
+  def days_left
+    days_active = (DateTime.now.to_date - created_at.to_date).to_i
+    6 - days_active
+  end
+
   # Calculate score for record ordering
   def calculate_score
     if self[:completed] == false
@@ -14,7 +20,7 @@ class Item < ActiveRecord::Base
     else
       points = 1
     end
-    total_points = points + ( time_elapsed + 2 )
+    total_points = points + ( time_elapsed + 2.0 )
     self.update_attributes(score: total_points)
   end
 

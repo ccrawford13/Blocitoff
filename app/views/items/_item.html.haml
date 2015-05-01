@@ -6,11 +6,15 @@
       - if item[:completed] == true
         %strike
           %h4.item-title#completed= item.title
-          .col-md-6.item-details
+          .col-md-7.item-details
             %p#completed Completed - #{ item.updated_at.time.to_formatted_s(:long_ordinal) }
+          .col-md-4.item-details
+            %p#completed Days Remaining - #{ item.days_left }
       -else
         %h4.item-title#new-items= item.title
-        .col-md-6.item-details
+        .col-md-7.item-details
           %p Created - #{ item.created_at.time.to_formatted_s(:long_ordinal) }
+        .col-md-4.item-details
+          %p Days Remaining - #{ item.days_left }
     .col-md-1#delete-link
       = link_to "", [item.user, item], method: :delete, class: 'glyphicon glyphicon-trash', remote: true
