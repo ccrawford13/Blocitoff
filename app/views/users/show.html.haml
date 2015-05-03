@@ -7,6 +7,8 @@
       - if @items
         = javascript_include_tag "items"
     .col-md-10.col-md-offset-2
-      .js-items
-        = render @items
+      .js-items#incomplete
+        = render @incomplete_items
+      .js-items#complete
+        = render @completed_items
         

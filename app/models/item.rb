@@ -4,26 +4,18 @@ class Item < ActiveRecord::Base
   validates :user, presence: true
   validates :title, length: { minimum: 5 }, presence: true
 
-  # update list - with completed items at bottom of list
-  scope :sorted, -> { order(score: :asc) }
+  # Scope complete and incomplete items
+  scope :incomplete_items, -> { where(completed: false) }
+  scope :completed_items, -> { where(completed: true) }
 
-  # Calculate score for record ordering
-  def calculate_score
-    if self[:completed] == false
-      points = 2
-    else
-      points = 1
-    end
-    total_points = points + ( time_elapsed + 2 )
-    self.update_attributes(score: total_points)
-  end
+  # Order items in list by created_at or updated_at
+  scope :incomplete_and_ordered, -> { incomplete_items.order("created_at DESC") }
+  scope :completed_and_ordered, -> { completed_items.order("updated_at DESC") }
 
-  # Check time elapsed since record created
-  def time_elapsed
-    if self.created_at == nil
-      set_created_at_time
-    end
-    (Time.now - self.created_at) / 3600
+  # Display time remaining
+  def days_left
+    days_active = (DateTime.now.to_date - created_at.to_date).to_i
+    6 - days_active
   end
 
   # Set the created_at time for new records
@@ -31,9 +23,8 @@ class Item < ActiveRecord::Base
     self.created_at = Time.now
   end
 
-  # Mark items as complete and calculate score
+  # Mark items as complete
   def mark_complete
     self.update_attributes(completed: true)
-    calculate_score
   end
 end

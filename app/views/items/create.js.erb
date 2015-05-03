@@ -1,5 +1,5 @@
 <% if @item.valid? %>
-   $('.js-items').prepend("<%= escape_javascript(render(@item)) %>");
+   $('.js-items#incomplete').prepend("<%= escape_javascript(render(@item)) %>");
    $('.new-item').html("<%= escape_javascript(render partial: 'items/form', locals: { user: @user, item: @item }) %>");
  <% else %>
    $('.new-item').html("<%= escape_javascript(render partial: 'items/form', locals: { user: @user, item: @item }) %>");
