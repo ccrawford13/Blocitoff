@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
     @item = current_user.items.build( item_params )
     @user = @item.user
     @new_item = Item.new
-    @item.calculate_score
     @item.save
   end
 
@@ -46,5 +45,4 @@ class ItemsController < ApplicationController
   def find_user
     @user = User.find(params[:user_id])
   end
-
 end
