@@ -26,8 +26,10 @@ users = User.all
 200.times do
   item = Item.create!(
     title:         Faker::Lorem.sentence,
-    user:          users.sample
+    user:          users.sample,
+    completed:     false
   )
+  item.update_attributes(created_at: (rand*15).days.ago)
 end
 items = Item.all
 
